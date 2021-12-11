@@ -1,0 +1,19 @@
+.orders_container {
+  border-radius: 7px;
+}
+#outer_container li {
+  padding: 5rem;
+  margin: 7rem;
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+  transition: box-shadow 0.5s, transform 0.5s;
+}
+
+#outer_container li:hover {
+  transform: scale(1.05);
+  /* transition: box-shadow 0.5s, transform 0.5s; */
+  /* transition: opacity 2s linear; */
+}
+
+.orders_container h1 {
+  margin-bottom: 20px;
+}

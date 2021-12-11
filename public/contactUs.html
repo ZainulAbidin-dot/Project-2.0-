@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.ico">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Intro.js files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.1.0/intro.min.js"
+    integrity="sha512-vpRYyG0wwpTzFdMa1fWEV6GLWfJiiKG1W7dCPuIuvm2kbZMUA8jnokV84rdUft8AF6ih83/ItbmP/fDzNjVxsA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.1.0/introjs.min.css"
+    integrity="sha512-631ugrjzlQYCOP9P8BOLEMFspr5ooQwY3rgt8SMUa+QqtVMbY/tniEUOcABHDGjK50VExB4CNc61g5oopGqCEw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- intro.js files ends -->
+  <link rel="stylesheet" href="./css/utilities.css">
+  <link rel="stylesheet" href="./css/contactUs.css">
+  <title>Taste of Décor | Contact Us</title>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="./index.html" class="logo">
+        <img src="./assets/logo.png" alt="">
+      </a>
+      <button class="hamburger" id="hamburger">
+        <span class="inner"></span>
+      </button>
+      <div class="nav-wrapper">
+        <ul class="nav__items">
+          <li class="nav__item"><a class="nav__link" href="./index.html">Home</a></li>
+          <li class="nav__item"><a class="nav__link" href="./about.html">About</a></li>
+          <li class="nav__item"><a class="nav__link" href="./collection.html">Collection</a></li>
+          <li class="nav__item"><a class="nav__link" href="./customization.html">customization</a></li>
+          <li class="nav__item"><a class="nav__link" href="./faqs.html">FAQs</a></li>
+          <li class="nav__item"><a class="nav__link active" href="#">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="profile-wrapper">
+        <div class="profile-image">USER</div>
+      </div>
+      <div class="profile-dropdown">
+        <ul class="profile__items">
+          <li class="profile__item">
+            <a href="#" class="profile__link">
+              <i class="fas fa-user"></i>
+              <span>My profile</span>
+            </a>
+          </li>
+          <li class="profile__item">
+            <a href="#" class="profile__link">
+              <i class="fas fa-list-alt"></i>
+              <span>My orders</span>
+            </a>
+          </li>
+          <li class="profile__item">
+            <button class="profile__link cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span>My cart</span>
+              <i class="cart-badge">0</i>
+            </button>
+          </li>
+          <li class="profile__item">
+            <a href="#" class="profile__link">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="cart-container">
+        <div class="close"><span class="close-icon"></span></div>
+        <div class="cart-head">
+          <p class="total-price">Total: <span>Rs. 95000</span></p>
+          <div class="remove-all"><span class="close-icon"></span>Remove all</div>
+        </div>
+        <div class="cart-items"></div>
+        <a href="./checkout.html" class="btn checkout">Check Out</a href="./checkout.html">
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="l-font main-title">Contact Us</h1>
+      <div id="map" class="mb-3"></div>
+      <section class="mb-3">
+        <div class="grid">
+          <div class="left" data-animation-name="slideInRight">
+            <h2>Find Us</h2>
+            <div class="wrapper">
+              <i class="material-icons-round">home</i>
+              <p>Address</p>
+              <div>xyz sec-62 North Karachi</div>
+            </div>
+            <div class="wrapper">
+              <i class="material-icons-round">email</i>
+              <p>Email</p>
+              <div>
+                <a href="mailto:anax291@gmail.com">anax291@gmail.com</a>
+                <a href="mailto:nshariq562@gmail.com">nshariq562@gmail.com</a>
+              </div>
+            </div>
+            <div class="wrapper">
+              <i class="material-icons-round">phone</i>
+              <p>Phone</p>
+              <div>
+                <a href="tel:+923333107559">03333107559</a>
+                <a href="tel:+923343696831">03343696831</a>
+              </div>
+            </div>
+          </div>
+          <div class="right" data-animation-name="slideInLeft">
+            <h2>Tell Us Your Message</h2>
+            <form id="contact-form">
+              <div class="field-wrapper">
+                <label for="name">Name</label>
+                <div class="input-container">
+                  <input type="text" name="name" id="name">
+                </div>
+              </div>
+              <div class="field-wrapper">
+                <label for="email">Email</label>
+                <div class="input-container">
+                  <input type="email" name="email" id="email">
+                </div>
+              </div>
+              <div class="field-wrapper">
+                <label for="subject">Subject</label>
+                <div class="input-container subject-container">
+                  <input type="text" name="subject" id="subject">
+                  <i class="fas fa-info-circle info"></i>
+                </div>
+              </div>
+              <div class="field-wrapper">
+                <label for="message">Message</label>
+                <div class="input-container">
+                  <textarea name="message" id="message" rows="4"></textarea>
+                </div>
+              </div>
+              <input class="btn" type="submit" value="Send Message">
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <template id="replace-msg">
+    <div class="popup">
+      <div class="msg">
+        <p>You have already Posted a review for us.</p>
+        <p>Do you want to replace it?</p>
+        <div class="buttons">
+          <button class="btn replace">Replace</button>
+          <button class="btn cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </template>
+</body>
+<script src="./js/googleMap.js"></script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAG7IsWWNe2IfDQGBpQ2sZJeibxVqKyb4&callback=initMap"></script>
+<script src="./js/common.js" type="module"></script>
+<script src="./js/contactUs.js" type="module"></script>
+<script src="./js/animation.js"></script>
+
+</html>

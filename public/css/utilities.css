@@ -1,0 +1,396 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Questrial&display=swap');
+
+@import url(./cart.css);
+@import url(./alerts.css);
+
+/* custom properties */
+:root {
+  --clr-secondary: hsl(0, 88%, 37%);
+  --btn-primary: #171717;
+  --clr-primary-300: hsl(205, 24%, 30%);
+  --clr-primary-600: hsl(205, 24%, 50%);
+  --clr-primary-500: hsl(205, 24%, 55%);
+}
+
+/* custom scroll bar */
+::-webkit-scrollbar-track {
+  border: 1px solid #f9f8fe;
+  background-color: #f9f8fe;
+}
+::-webkit-scrollbar {
+  width: 1rem;
+  background-color: #f9f8fe;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+}
+/* custom scroll bar ends */
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+
+.fas,
+.fab,
+.far {
+  font-family: 'Font Awesome 5 Free' !important;
+}
+
+/*  Core Styling */
+html {
+  font-size: 0.9375rem;
+}
+
+body {
+  line-height: 1.5;
+  color: #333;
+  margin-top: 7rem;
+  overflow-x: hidden;
+  font-family: 'Nanum Myeongjo', serif;
+  animation: transitionIn 750ms;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+label,
+input[type='text'],
+input[type='email'],
+textarea {
+  display: block;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* utilities */
+
+.container {
+  width: min(1170px, 90vw);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5em 1.25em;
+  border: none;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  font-size: inherit;
+  border-radius: 0.15rem;
+}
+
+.flow > *:not(:last-child) {
+  margin-bottom: var(--flow-space, 0.5em);
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.l-font {
+  font-size: clamp(3.5rem, 2rem + 2vw, 5rem);
+}
+
+.m-font {
+  font-size: clamp(2.75rem, 1.25rem + 2vw, 4rem);
+}
+
+.material-icons,
+.material-icons-round {
+  font-family: 'Material Icons';
+  font-style: normal;
+}
+
+/* navbar */
+
+/* scroll stuff */
+.scroll-down header {
+  transform: translate(0, -100%);
+}
+
+.scroll-up header {
+  filter: drop-shadow(0 -10px 20px rgb(170, 170, 170));
+}
+/* scroll stuff ends */
+
+header {
+  background: #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  transition: all 300ms ease-in-out;
+}
+
+.navbar {
+  width: min(1100px, 95vw);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+
+.navbar .logo img {
+  height: 60px;
+}
+
+.hamburger {
+  display: none;
+  width: 3rem;
+  height: 3.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0.5rem;
+  text-indent: 5rem;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.hamburger .inner,
+.hamburger .inner::before,
+.hamburger .inner::after {
+  position: absolute;
+  height: 0.22rem;
+  background: #333;
+  border-radius: 0.25rem;
+  display: block;
+  transition: top 0.2s 0.2s, transform 0.2s, background-color 0.4s 0.2s;
+}
+
+.hamburger .inner {
+  width: 78%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hamburger .inner::before,
+.hamburger .inner::after {
+  content: '';
+  left: 0;
+  width: 100%;
+}
+
+.hamburger .inner::before {
+  top: -0.75rem;
+}
+
+.hamburger .inner::after {
+  top: 0.75rem;
+}
+
+/* animation */
+.hamburger.menu-active .inner {
+  background-color: transparent;
+  transform: backgorund-color 0.2s;
+}
+
+.hamburger.hamburger.menu-active .inner::before {
+  transform: rotate(-45deg);
+  top: 0;
+  transition: top 0.2s, transform 0.2s 0.14s;
+  background: #f4f4f4;
+}
+
+.hamburger.hamburger.menu-active .inner::after {
+  transform: rotate(45deg);
+  top: 0;
+  transition: top 0.2s, transform 0.2s 0.14s;
+  background: #f4f4f4;
+}
+
+/* navigation */
+
+.nav-wrapper {
+  display: contents;
+  z-index: 100;
+}
+
+.nav__items {
+  display: flex;
+  align-items: center;
+}
+
+.nav__items > *:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.nav__link {
+  display: inline-block;
+  padding: 0.25rem;
+  font-size: 1.25rem;
+  opacity: 0.8;
+  text-transform: capitalize;
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #333;
+  transform: scaleX(0);
+  transition: transform 500ms ease;
+  transform-origin: right;
+}
+
+.nav__link:hover,
+.nav__link:focus,
+.nav__link.active {
+  opacity: 1;
+}
+
+.nav__link:hover::after,
+.nav__link:focus::after,
+.nav__link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav__link.active::after {
+  transform-origin: right;
+}
+
+.nav__link.active:hover::after {
+  transform: scaleX(0.3);
+  transform-origin: right;
+}
+
+@media (max-width: 850px) {
+  .logo {
+    order: 2;
+  }
+
+  .hamburger {
+    display: block;
+    order: 1;
+  }
+
+  .profile-wrapper {
+    order: 3;
+  }
+
+  .nav-wrapper {
+    transform: scale(0);
+    transition: transform 250ms ease;
+  }
+
+  .nav__items {
+    display: none;
+  }
+
+  .nav__link {
+    color: #f4f4f4;
+    transition: transform 250ms ease;
+  }
+
+  .nav__link:hover,
+  .nav__link:focus {
+    opacity: 0.8;
+    transform: translateX(1rem);
+  }
+
+  .hamburger.menu-active ~ .nav-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: #000;
+    opacity: 0.95;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+  }
+
+  .hamburger.menu-active ~ .nav-wrapper > * {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .hamburger.menu-active ~ .nav-wrapper .nav__items {
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2.5rem;
+    padding: 1rem;
+  }
+}
