@@ -39,7 +39,7 @@ export const postDataToDb = async (endpoint, data, auth = undefined) => {
     headers: { "Content-Type": "application/json" },
   };
   if (auth) optionObj.headers.authorization = `Bearer ${auth}`;
-  console.log(optionObj);
+  // console.log(optionObj);
   const res = await fetch(url, optionObj);
   const result = await res.json();
   return result;

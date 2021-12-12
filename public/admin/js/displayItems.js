@@ -13,8 +13,8 @@ export const updateHeader = (title) => {
     const addBtn = document.createElement("a");
     addBtn.classList.add("add-item");
     addBtn.textContent = `Add ${title}`;
-    if (title === "Inventory") addBtn.href = "./addproduct.html";
-    if (title === "categories") addBtn.href = "./addcategory.html";
+    if (title === "Inventory") addBtn.href = "./addProduct.html";
+    if (title === "categories") addBtn.href = "./addCategory.html";
     container.appendChild(addBtn);
   }
 };

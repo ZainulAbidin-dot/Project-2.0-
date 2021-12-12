@@ -30,16 +30,17 @@ const handleSignIn = async (e) => {
   const password = signInForm.querySelector('input[type="password"]').value;
   e.preventDefault();
   const authenticate = await postDataToDb("api/token/", { username, password });
-  console.log(authenticate);
 
   if (!authenticate.access) {
     return alert("Invalid email password combination");
-  } else if (username === "zain" && password === "zain") {
-    localStorage.setItem("access", JSON.stringify(authenticate.access));
-    window.location.href = "http://127.0.0.1:5500/public/admin/admin.html";
+  }
+  const accessToken = authenticate.access;
+  localStorage.setItem("access", JSON.stringify(accessToken));
+  const user = await getDataFromDb("getuser", accessToken);
+  if (user.is_staff) {
+    window.location.href = `http://127.0.0.1:5500/public/admin/admin.html`;
   } else {
-    localStorage.setItem("access", JSON.stringify(authenticate.access));
-    window.location.href = "http://127.0.0.1:5500/public";
+    window.location.href = `http://127.0.0.1:5500/public/`;
   }
 };
 

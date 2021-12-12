@@ -69,7 +69,7 @@ const updateCategory = async (e) => {
   };
   const auth = JSON.parse(localStorage.getItem("access"));
   const res = await replaceDataInDb(`updatecategory`, data, auth);
-  console.log(res);
+  // console.log(res);
   displayMsg("Category name has been successfully changed...", "success", 4000);
 };
 
