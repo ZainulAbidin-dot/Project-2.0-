@@ -44,6 +44,17 @@ LogOut.addEventListener("click", function () {
   JSON.parse(localStorage.clear());
 });
 
+// Login
+const login = document.querySelector("#log_in");
+login.addEventListener("click", function () {
+  const accessToken = JSON.parse(localStorage.getItem("access")) || undefined;
+  if (!accessToken) {
+    window.location.href = `http://127.0.0.1:5500/public/authentication.html`;
+  } else {
+    alert("You are Already Logged In !");
+  }
+});
+
 // scroll activated navbar
 const body = document.body;
 let lastScroll = 0;

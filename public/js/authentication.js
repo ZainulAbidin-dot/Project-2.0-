@@ -104,13 +104,25 @@ const handleSignUp = async (e) => {
     )
   )
     return;
-  await postDataToDb("createuser", {
+
+  const data = await postDataToDb("createuser", {
     username: nameField.value,
     email: emailField.value,
     city: cityField.value,
     phone: phoneField.value,
     password: passwordField.value,
   });
+
+  if (data === "USER CREATED") {
+    const authenticate = await postDataToDb("api/token/", {
+      username: nameField.value,
+      password: passwordField.value,
+    });
+    const accessToken = authenticate.access;
+    const user = await getDataFromDb("getuser", accessToken);
+    const id = user.profile.id;
+    await postDataToDb("sendemaill", { id }, accessToken);
+  }
   alert("user successfully created");
   clearFields(
     nameField,
