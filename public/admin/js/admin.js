@@ -1,5 +1,9 @@
-import { getDataFromDb, updateDataInDb, deleteDataFromDb } from '../../js/apiCalls.js';
-import { emptyContainer, numberWithCommas } from '../../js/dataFunctions.js';
+import {
+  getDataFromDb,
+  updateDataInDb,
+  deleteDataFromDb,
+} from "../../js/apiCalls.js";
+import { emptyContainer, numberWithCommas } from "../../js/dataFunctions.js";
 import {
   showProducts,
   showCategories,
@@ -7,45 +11,52 @@ import {
   showUsers,
   showOrder,
   updateHeader,
-} from './displayItems.js';
+} from "./displayItems.js";
+
+// Log Out
+const LogOut = document.querySelector("#log_out");
+LogOut.addEventListener("click", function () {
+  // JSON.parse(localStorage.removeItem("access"));
+  JSON.parse(localStorage.clear());
+});
 
 const handleSideBarClick = (e) => {
-  const target = e.target.closest('.resource__list__item');
+  const target = e.target.closest(".resource__list__item");
   if (!target) return;
-  document.querySelector('.resource__list .active').classList.remove('active');
-  target.classList.add('active');
+  document.querySelector(".resource__list .active").classList.remove("active");
+  target.classList.add("active");
   switch (target.dataset.value) {
-    case 'products':
-      updateHeader('Inventory');
+    case "products":
+      updateHeader("Inventory");
       showProducts();
       break;
-    case 'categories':
-      updateHeader('categories');
+    case "categories":
+      updateHeader("categories");
       showCategories();
       break;
-    case 'orders':
-      updateHeader('orders');
+    case "orders":
+      updateHeader("orders");
       showOrder();
       break;
-    case 'users':
-      updateHeader('users');
+    case "users":
+      updateHeader("users");
       showUsers();
       break;
-    case 'messages':
-      updateHeader('messages');
-      showMessages();
-      break;
+    // case "messages":
+    //   updateHeader("messages");
+    //   showMessages();
+    //   break;
   }
 };
 
 const handleAppInteractions = (e) => {
-  const target = e.target.closest('ul');
+  const target = e.target.closest("ul");
   if (!target) return;
-  if (target.classList.contains('resource__table')) handleResourceClicks(e);
-  if (target.classList.contains('categories')) handleCategoriesClicks(e);
-  if (target.classList.contains('order__table')) handleOrdersClicks(e);
-  if (target.classList.contains('customers__table')) handleCustomersClicks(e);
-  if (target.classList.contains('messages')) handleMessagesClicks(e);
+  if (target.classList.contains("resource__table")) handleResourceClicks(e);
+  if (target.classList.contains("categories")) handleCategoriesClicks(e);
+  if (target.classList.contains("order__table")) handleOrdersClicks(e);
+  if (target.classList.contains("customers__table")) handleCustomersClicks(e);
+  // if (target.classList.contains("messages")) handleMessagesClicks(e);
 };
 
 const handleResourceClicks = (e) => {
@@ -65,12 +76,12 @@ const handleCustomersClicks = (e) => {
 };
 
 const handleMessagesClicks = (e) => {
-  if (e.target.closest('.message__delete')) {
-    const id = e.target.closest('.message').dataset.id;
+  if (e.target.closest(".message__delete")) {
+    const id = e.target.closest(".message").dataset.id;
     deleteMessage(id);
   }
-  if (e.target.closest('.featured-toggler-container')) {
-    const id = e.target.closest('.message').dataset.id;
+  if (e.target.closest(".featured-toggler-container")) {
+    const id = e.target.closest(".message").dataset.id;
     updateMessage(id);
   }
 };
@@ -80,7 +91,7 @@ const deleteMessage = async (id) => {
   await deleteDataFromDb(`messages/${id}`);
   // removing from DOM
   document
-    .querySelector('.messages')
+    .querySelector(".messages")
     .removeChild(document.querySelector(`.message[data-id='${id}']`));
 };
 
@@ -90,11 +101,11 @@ const updateMessage = async (id) => {
 };
 
 const init = async () => {
-  const sideBar = document.querySelector('.resource__list');
-  const app = document.querySelector('.app');
-  sideBar.addEventListener('click', handleSideBarClick);
+  const sideBar = document.querySelector(".resource__list");
+  const app = document.querySelector(".app");
+  sideBar.addEventListener("click", handleSideBarClick);
   sideBar.firstElementChild.click();
-  app.addEventListener('click', handleAppInteractions);
+  app.addEventListener("click", handleAppInteractions);
 };
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener("DOMContentLoaded", init);

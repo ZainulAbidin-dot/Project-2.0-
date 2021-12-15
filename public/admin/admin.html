@@ -19,7 +19,8 @@
         <li class="resource__list__item" data-value="categories">Categories</li>
         <li class="resource__list__item" data-value="orders">Orders</li>
         <li class="resource__list__item" data-value="users">Customers</li>
-        <li class="resource__list__item" data-value="messages">Messages</li>
+        <!-- <li class="resource__list__item" data-value="messages">Messages</li> -->
+        <a href="/public/authentication.html" id="log_out">Log Out</a>
       </ul>
     </aside>
     <section class="resources__details">
@@ -73,8 +74,9 @@
   <!-- Order -->
   <template data-order-header>
     <div class="order__item__header">
-      <span>Id</span>
+      <span>Order Id</span>
       <span>Customer-Name</span>
+      <span>Order Names</span>
       <span>Price</span>
       <span>Items</span>
       <!-- <button>View</button> -->
@@ -85,6 +87,7 @@
     <li class="order__item">
       <span class="order__item__id">01</span>
       <span class="customer__name">Customer 1</span>
+      <span class="order__name">Bed 1</span>
       <span class="order__price">5400</span>
       <span class="product__qty">5</span>
       <!-- <button class="order__item__view">View</button> -->

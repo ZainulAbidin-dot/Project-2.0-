@@ -32,6 +32,12 @@ const displayUserInfo = (user) => {
       text: `Phone No.: ${user.profile.phoneno}`,
     })
   );
+  fragment.appendChild(
+    createTagWithOptions({
+      tag: "p",
+      text: `Verified: ${user.profile.is_verified}`,
+    })
+  );
   return fragment;
 };
 

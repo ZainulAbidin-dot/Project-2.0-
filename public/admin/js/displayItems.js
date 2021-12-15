@@ -109,16 +109,17 @@ export const showOrder = async () => {
   ordersContainer.appendChild(header);
   // injecting orders
   for (let order of orders) {
-    console.log(order);
     const items = order.orderproduct.reduce(
       (total, item) => (total += item.quantity),
       0
     );
     order = { ...order, items };
+    const prodNames = order.orderproduct.map((order) => order.product.name);
     const item = itemTemplate.content.firstElementChild.cloneNode(true);
     item.setAttribute("data-order-id", order.id);
     item.querySelector(".order__item__id").textContent = order.id;
     item.querySelector(".customer__name").textContent = order.username;
+    item.querySelector(".order__name").textContent = prodNames.join(", ");
     item.querySelector(".order__price").textContent = `Rs. ${numberWithCommas(
       order.total_price
     )}`;
