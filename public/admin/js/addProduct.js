@@ -1,4 +1,4 @@
-import { getDataFromDb, postDataToDb } from "../../js/apiCalls.js";
+import { getDataFromDb, postDataToDb, postDTB } from "../../js/apiCalls.js";
 import { displayMsg } from "../../js/dataFunctions.js";
 
 /* Grabbing UI Fields */
@@ -20,7 +20,6 @@ const init = async () => {
 };
 
 const updateFields = (categories) => {
-  console.log(categories);
   const options = [{ id: null, name: "select category..." }, ...categories].map(
     (category) => createOptionElement(category)
   );
@@ -36,27 +35,14 @@ const createOptionElement = ({ id, name }) => {
 
 const handleFormSubmit = async (e) => {
   e.preventDefault();
-  const description = productDescription.value
-    .split("\n")
-    .map((desc) => desc.trim())
-    .filter((desc) => desc.length !== 0)
-    .join(". ");
   const stock = Number(productStockField.value);
   if (stock < 0) {
     alert("Stock can not be in negative");
     return;
   }
-  console.log(imageField.value);
   const auth = JSON.parse(localStorage.getItem("access"));
-  const product = {
-    name: productNameField.value,
-    category: categoryList.value,
-    price: Number(productPriceField.value),
-    primary_image: imageField.value,
-    description,
-    in_stock: stock,
-  };
-  await postDataToDb("insertproduct", product, auth);
+  console.log(form);
+  await postDTB("insertproduct", form, auth);
   displayMsg("Product has been added", "success", 4000);
 };
 

@@ -1,4 +1,4 @@
-import { getDataFromDb } from "../../js/apiCalls.js";
+import { getDataFromDb, deleteDataFromDb } from "../../js/apiCalls.js";
 import { emptyContainer, numberWithCommas } from "../../js/dataFunctions.js";
 
 export const updateHeader = (title) => {
@@ -51,6 +51,9 @@ export const showProducts = async () => {
     resourceItem.querySelector(
       ".resource__item__edit"
     ).href = `./editProduct.html?id=${product.id}`;
+    resourceItem
+      .querySelector(".resource__item__delete")
+      .addEventListener("click", handleProductDelete);
     ul.appendChild(resourceItem);
   }
   productsContainer.appendChild(ul);
@@ -87,16 +90,38 @@ export const showCategories = async () => {
     item.querySelector(
       ".resource__item__edit"
     ).href = `./editCategory.html?id=${category.id}`;
+    item
+      .querySelector(".resource__item__delete")
+      .addEventListener("click", handleCategoryDelete);
     ul.appendChild(item);
   }
   categoriesContainer.appendChild(ul);
 };
+
+// Category Delete Function
+async function handleCategoryDelete(e) {
+  const id = e.target.closest(".category").dataset.categoryId;
+  console.log(id);
+  const auth = JSON.parse(localStorage.getItem("access"));
+  await deleteDataFromDb("deletecategory", { id }, auth);
+  window.location.reload();
+}
+
+// Product Delete Function
+async function handleProductDelete(e) {
+  const id = e.target.closest(".resource__item").dataset.productId;
+  console.log(id);
+  const auth = JSON.parse(localStorage.getItem("access"));
+  await deleteDataFromDb("deleteproduct", { id }, auth);
+  window.location.reload();
+}
 
 export const showOrder = async () => {
   let orders = await getDataFromDb(
     "vieworder",
     JSON.parse(localStorage.getItem("access"))
   );
+  console.log(orders);
   const ordersContainer = document.querySelector(".app");
   const headerTemplate = document.querySelector("[data-order-header]");
   const header = headerTemplate.content.firstElementChild.cloneNode(true);
@@ -114,6 +139,7 @@ export const showOrder = async () => {
       0
     );
     order = { ...order, items };
+
     const prodNames = order.orderproduct.map((order) => order.product.name);
     const item = itemTemplate.content.firstElementChild.cloneNode(true);
     item.setAttribute("data-order-id", order.id);

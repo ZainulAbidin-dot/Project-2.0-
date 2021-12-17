@@ -19,35 +19,38 @@
       <form class="add-product">
         <div class="wrapper">
           <label for="product-name">Product Name:</label>
-          <input type="text" name="product-name" id="product-name">
+          <input type="text" name="name" id="product-name" value="test">
         </div>
         <div class="wrapper">
           <label for="product-price">Product Price:</label>
-          <input type="number" name="product-price" id="product-price">
+          <input type="number" name="price" id="product-price" value="5000">
         </div>
         <div class="wrapper">
           <label for="category-list">Category:</label>
-          <select name="category-list" id="category-list">
+          <select name="category" id="category-list">
           </select>
         </div>
         <div class="wrapper">
           <label for="product-stock">Product Stock:</label>
-          <input type="number" name="product-stock" id="product-stock">
+          <input type="number" name="in_stock" id="product-stock" value="20">
         </div>
         <div class="wrapper product-images">
           <label for="product-images">Images:</label>
-          <input type="file" name="product-images" id="product-images" (change)=(onFileSelected($event))>
+          <input type="file" name="primary_image" id="product-images">
           <div class="images"></div>
         </div>
         <div class="wrapper">
           <label for="product-description">Description</label>
-          <textarea name="product-description" rows="10" id="product-description"></textarea>
+          <textarea name="description" rows="10" id="product-description" value="this is a test prod"></textarea>
         </div>
         <input class="btn update-product" type="submit" value="add...">
       </form>
     </div>
   </main>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+  integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./js/addProduct.js" type="module"></script>
 
 </html>

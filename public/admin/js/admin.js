@@ -49,15 +49,15 @@ const handleSideBarClick = (e) => {
   }
 };
 
-const handleAppInteractions = (e) => {
-  const target = e.target.closest("ul");
-  if (!target) return;
-  if (target.classList.contains("resource__table")) handleResourceClicks(e);
-  if (target.classList.contains("categories")) handleCategoriesClicks(e);
-  if (target.classList.contains("order__table")) handleOrdersClicks(e);
-  if (target.classList.contains("customers__table")) handleCustomersClicks(e);
-  // if (target.classList.contains("messages")) handleMessagesClicks(e);
-};
+// const handleAppInteractions = (e) => {
+//   const target = e.target.closest("ul");
+//   if (!target) return;
+//   if (target.classList.contains("resource__table")) handleResourceClicks(e);
+//   if (target.classList.contains("categories")) handleCategoriesClicks(e);
+//   if (target.classList.contains("order__table")) handleOrdersClicks(e);
+//   if (target.classList.contains("customers__table")) handleCustomersClicks(e);
+//   // if (target.classList.contains("messages")) handleMessagesClicks(e);
+// };
 
 const handleResourceClicks = (e) => {
   console.log(e.target);
@@ -105,7 +105,7 @@ const init = async () => {
   const app = document.querySelector(".app");
   sideBar.addEventListener("click", handleSideBarClick);
   sideBar.firstElementChild.click();
-  app.addEventListener("click", handleAppInteractions);
+  // app.addEventListener("click", handleAppInteractions);
 };
 
 document.addEventListener("DOMContentLoaded", init);

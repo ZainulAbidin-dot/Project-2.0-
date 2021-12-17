@@ -45,6 +45,46 @@ export const postDataToDb = async (endpoint, data, auth = undefined) => {
   return result;
 };
 
+export const postDTB = async (endpoint, form, auth) => {
+  const url = `${API_URL}/${endpoint}`;
+  const formData = new FormData(form);
+  console.log(Array.from(formData));
+  let optionObj = {
+    method: "POST",
+    body: formData,
+    headers: {
+      "Content-Type":
+        "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+      authorization: `Bearer ${auth}`,
+    },
+  };
+
+  console.log(optionObj);
+  const res = await fetch(url, optionObj);
+  const result = await res.json();
+  return result;
+};
+
+// export const postDTB = async (endpoint, form, auth) => {
+//   const url = `${API_URL}/${endpoint}`;
+//   const axios = axios()
+//   const formData = new FormData(form);
+//   console.log(formData);
+//   let optionObj = {
+//     method: "POST",
+//     body: formData,
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//       authorization: `Bearer ${auth}`,
+//     },
+//   };
+//
+//   console.log(optionObj);
+//   const res = await fetch(url, optionObj);
+//   const result = await res.json();
+//   return result;
+// };
+
 /* Update Data in databse */
 export const updateDataInDb = async (endpoint, data, auth = undefined) => {
   const url = `${API_URL}/${endpoint}`;

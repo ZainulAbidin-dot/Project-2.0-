@@ -12,6 +12,7 @@ const form = document.querySelector(".edit-product");
 const productNameField = document.getElementById("product-name");
 const productPriceField = document.getElementById("product-price");
 const imageWrapper = document.querySelector(".product-images");
+const productStockField = document.getElementById("product-stock");
 const imageField = document.getElementById("product-images");
 const productDescription = document.getElementById("product-description");
 const categoryList = document.getElementById("category-list");
@@ -78,6 +79,7 @@ const handleFormSubmit = async (e, product) => {
     price: Number(productPriceField.value),
     description,
     category: Number(categoryList.value),
+    in_stock: Number(productStockField.value),
     primary_image: imageField.files[0].name,
   };
   const auth = JSON.parse(localStorage.getItem("access"));
