@@ -76,7 +76,7 @@ const validateForm = (
     alert("passsword must be 8 characters long");
     return false;
   }
-  if (!passwordField.value === confirmpasswordField.value) {
+  if (passwordField.value !== confirmpasswordField.value) {
     alert("Please enter a valid password");
     return false;
   }

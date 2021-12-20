@@ -197,13 +197,19 @@ textarea {
 .category {
   padding: 0.25rem 0.5rem;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 0.5rem;
+}
+
+.customers__header,
+.customer {
+  grid-template-columns: 3ch 15ch 2fr 10ch 1fr;
+  gap: 1rem;
 }
 
 .resource__item__header,
 .resource__item {
-  grid-template-columns: 1fr 3fr 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr 2fr 1fr 1fr 1fr 1fr;
 }
 
 .category__header,

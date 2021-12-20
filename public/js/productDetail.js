@@ -152,7 +152,7 @@ const buyProduct = async () => {
     if (!btn) return;
     sendProdToCart(document.querySelector(".product .grid"), productId);
     setTimeout(() => {
-      window.location.href = `http://localhost:5500/checkout.html`;
+      window.location.href = `http://127.0.0.1:5500/public/checkout.html`;
     }, 500);
   });
 };

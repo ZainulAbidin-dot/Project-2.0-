@@ -42,6 +42,7 @@ const LogOut = document.querySelector("#log_out");
 LogOut.addEventListener("click", function () {
   // JSON.parse(localStorage.removeItem("access"));
   JSON.parse(localStorage.clear());
+  window.location.href = "http://127.0.0.1:5500/public/authentication.html";
 });
 
 // Login
@@ -133,11 +134,9 @@ if (ids.includes(body.id)) {
 
 /* Init Function */
 const initCart = async () => {
-  const [cart] = await getDataFromDb(
-    "viewcart",
-    JSON.parse(localStorage.getItem("access"))
-  );
-  const cartProducts = cart.cartproduct;
+  const auth = JSON.parse(localStorage.getItem("access")) || null;
+  const [cart] = auth ? await getDataFromDb("viewcart", auth) : [{}];
+  const cartProducts = cart?.cartproduct || [];
   const cartItems = cartProducts.map((prod, index) => ({
     id: index + 1,
     prodId: prod.product.id,

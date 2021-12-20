@@ -41,7 +41,7 @@ const updateFormFields = async () => {
   document.querySelector("#name").value = user.username;
   document.querySelector("#email").value = user.email;
   document.querySelector("#address").value = user.profile.city;
-  document.querySelector("#phone").value = user.profile?.phone;
+  document.querySelector("#phone").value = user.profile?.phoneno;
 };
 
 const injectProductCards = (items) => {
